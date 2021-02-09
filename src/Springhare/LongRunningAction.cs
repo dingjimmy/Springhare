@@ -13,6 +13,27 @@ namespace Springhare
 
         public ActionResult Execute()
         {
+            TimeSpan duration;
+
+            int durationVal = Configuration[1].Value;
+
+            switch (Configuration[2].Value)
+            {
+                case "sec":
+                    duration = new TimeSpan(durationVal, 0, 0);
+                    break;
+                case "min":
+                    duration = new TimeSpan(durationVal, 0, 0);
+                    break;
+                case "hour":
+                    duration = new TimeSpan(durationVal, 0, 0);
+                    break;
+                default:
+                    return ActionResult.Failed;
+            }
+
+            System.Threading.Tasks.Task.Delay(duration).Wait();
+
             return ActionResult.Success;
         }
 
