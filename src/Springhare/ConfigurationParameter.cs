@@ -1,4 +1,4 @@
-﻿// Copyright (c) James C Dingle. All rights reserved.:warning
+﻿// Copyright (c) James C Dingle. All rights reserved.
 
 using System;
 

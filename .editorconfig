@@ -4,4 +4,4 @@ root = true
 # C# files
 [*.cs]
 
-file_header_template = Copyright (c) James C Dingle. All rights reserved.:warning
+file_header_template = Copyright (c) James C Dingle. All rights reserved.
