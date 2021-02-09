@@ -11,19 +11,19 @@ namespace Springhare
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public List<ConfigurationParameter> Configuration { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void Execute()
+        public ActionResult Execute()
         {
-            throw new NotImplementedException();
+            return ActionResult.Success;
         }
 
-        public void Setup()
+        public ActionResult Setup()
         {
-            throw new NotImplementedException();
+            return ActionResult.Success;
         }
 
-        public void Teardown()
+        public ActionResult Teardown()
         {
-            throw new NotImplementedException();
+            return ActionResult.Success;
         }
     }
 }

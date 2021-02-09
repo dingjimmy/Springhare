@@ -27,17 +27,23 @@ namespace Springhare
         /// <summary>
         /// Sets-up the action ready for execution. 
         /// </summary>
-        public void Setup();
+        public ActionResult Setup();
 
         /// <summary>
         /// Executes the primary logic of the action.
         /// </summary>
-        public void Execute();
+        public ActionResult Execute();
 
         /// <summary>
         /// Tears-down the action after execution has completed.
         /// </summary>
         /// <remarks>For Example: freeing resources, closing connections and putting 3rd party devices, software or services into a good state.</remarks>
-        public void Teardown();
+        public ActionResult Teardown();
+    }
+
+    public enum ActionResult
+    {
+        Failed = -1,
+        Success = 0
     }
 }
