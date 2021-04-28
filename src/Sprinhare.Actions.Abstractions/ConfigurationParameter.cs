@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Springhare
+namespace Springhare.Actions.Abstractions
 {
     /// <summary>
     /// Represents a value that is used to configure how an action behaves at runtime.

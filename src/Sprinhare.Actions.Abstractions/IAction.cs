@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace Springhare
+namespace Springhare.Actions.Abstractions
 {
     /// <summary>
     /// Represents an action that need to be performed by a 3rd party device, application or service.
@@ -12,17 +12,12 @@ namespace Springhare
         ///<Summary>
         /// Gets or sets a value which uniquley identifies the action.
         ///</Summary>
-        uint Id { get; set; }
+        string Key { get; set; }
 
         /// <summary>
-        /// Gets or sets human-friendly name to help users to identify the Action.
+        /// Gets or sets the display name of the Action.
         /// </summary>
         string Name { get; set; }
-
-        // <summary>
-        /// Gets a collection of paramters that configure the actions behaviour.
-        /// </summary>
-        List<ConfigurationParameter> Configuration { get; set; }
 
         /// <summary>
         /// Sets-up the action ready for execution. 

@@ -7,12 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9ED9F82F-18A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{963BB458-F6B2-4E8F-AF10-C246572D6A61}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Springhare", "src\Springhare\Springhare.csproj", "{28D02B0C-419B-4230-804F-9380F5349C85}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09D89530-3105-463B-B76F-7519E39D0D1F}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Actions.Abstractions", "src\Sprinhare.Actions.Abstractions\Springhare.Actions.Abstractions.csproj", "{59CCF3E9-2F5D-4476-906C-89F9047FDD2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Springhare.Actions", "src\Springhare.Actions\Springhare.Actions.csproj", "{A82F2B54-E973-404C-AAE5-3465C0F321BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Actions.TestHarness", "src\Springhare.Actions.TestHarness\Springhare.Actions.TestHarness.csproj", "{1B6B58D9-CFFB-4B77-AC50-32311FC69B15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,16 +24,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{28D02B0C-419B-4230-804F-9380F5349C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28D02B0C-419B-4230-804F-9380F5349C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28D02B0C-419B-4230-804F-9380F5349C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28D02B0C-419B-4230-804F-9380F5349C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59CCF3E9-2F5D-4476-906C-89F9047FDD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59CCF3E9-2F5D-4476-906C-89F9047FDD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59CCF3E9-2F5D-4476-906C-89F9047FDD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59CCF3E9-2F5D-4476-906C-89F9047FDD2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A82F2B54-E973-404C-AAE5-3465C0F321BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A82F2B54-E973-404C-AAE5-3465C0F321BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A82F2B54-E973-404C-AAE5-3465C0F321BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A82F2B54-E973-404C-AAE5-3465C0F321BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B6B58D9-CFFB-4B77-AC50-32311FC69B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6B58D9-CFFB-4B77-AC50-32311FC69B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6B58D9-CFFB-4B77-AC50-32311FC69B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6B58D9-CFFB-4B77-AC50-32311FC69B15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{28D02B0C-419B-4230-804F-9380F5349C85} = {9ED9F82F-18A7-451D-8CCE-BD3846DD5099}
+		{59CCF3E9-2F5D-4476-906C-89F9047FDD2F} = {9ED9F82F-18A7-451D-8CCE-BD3846DD5099}
+		{A82F2B54-E973-404C-AAE5-3465C0F321BF} = {9ED9F82F-18A7-451D-8CCE-BD3846DD5099}
+		{1B6B58D9-CFFB-4B77-AC50-32311FC69B15} = {9ED9F82F-18A7-451D-8CCE-BD3846DD5099}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {54832969-919B-4526-B209-C8C01C8D13FB}

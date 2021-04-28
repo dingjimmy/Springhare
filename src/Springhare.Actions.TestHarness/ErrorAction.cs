@@ -9,7 +9,7 @@ namespace Springhare
     {
         public uint Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<ConfigurationParameter> Configuration { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ConfigurationParameterCollection Configuration { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public ActionResult Execute()
         {

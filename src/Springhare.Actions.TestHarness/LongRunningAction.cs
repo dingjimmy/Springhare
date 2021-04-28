@@ -1,23 +1,24 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
 using System;
-using System.Collections.Generic;
 
 namespace Springhare
 {
     public class LongRunningAction : IAction
     {
-        public uint Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public uint Id { get; set; }
+
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<ConfigurationParameter> Configuration { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public ConfigurationParameterCollection Configuration { get; set; }
 
         public ActionResult Execute()
         {
             TimeSpan duration;
 
-            int durationVal = Configuration[1].Value;
+            int durationVal = Configuration["Duration.Value"];
 
-            switch (Configuration[2].Value)
+            switch (Configuration["Duration.Unit"])
             {
                 case "sec":
                     duration = new TimeSpan(durationVal, 0, 0);
