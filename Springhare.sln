@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09D89530-3105-463B-B76F-7519E39D0D1F}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Springhare.Actions", "src\Springhare.Actions\Springhare.Actions.csproj", "{A82F2B54-E973-404C-AAE5-3465C0F321BF}"
