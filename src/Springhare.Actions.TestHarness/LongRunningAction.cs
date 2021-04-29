@@ -28,7 +28,7 @@ namespace Springhare
     /// </summary>
     public class LongRunningAction : IActionRuntime
     {
-        public string Key { get; set; }
+        public string Key => "LRA";
 
         public ActionConfiguration Configuration { get; set; } = new ActionConfiguration();
 

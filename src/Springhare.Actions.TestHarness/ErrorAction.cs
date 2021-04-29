@@ -1,15 +1,14 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
-using System;
-using System.Collections.Generic;
+using Springhare.Actions.Abstractions;
 
 namespace Springhare
 {
-    public class ErrorAction : IAction
+    public class ErrorAction : IActionRuntime
     {
-        public uint Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ConfigurationParameterCollection Configuration { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Key => "ERA";
+
+        public ActionConfiguration Configuration { get; set; }
 
         public ActionResult Execute()
         {

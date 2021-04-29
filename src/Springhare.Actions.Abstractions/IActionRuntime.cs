@@ -10,7 +10,7 @@ namespace Springhare.Actions.Abstractions
         ///<Summary>
         /// Gets or sets a value which uniquley identifies the action.
         ///</Summary>
-        string Key { get; set; }
+        string Key { get; }
 
         /// <summary>
         /// The configuration to use when performing the action.
