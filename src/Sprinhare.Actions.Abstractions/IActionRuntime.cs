@@ -1,13 +1,11 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
-using System.Collections.Generic;
-
 namespace Springhare.Actions.Abstractions
 {
     /// <summary>
-    /// Represents an action that need to be performed by a 3rd party device, application or service.
+    /// Represents the runtime operation of an action that needs to be performed.
     /// </summary>
-    public interface IAction
+    public interface IActionRuntime
     {
         ///<Summary>
         /// Gets or sets a value which uniquley identifies the action.
@@ -15,9 +13,9 @@ namespace Springhare.Actions.Abstractions
         string Key { get; set; }
 
         /// <summary>
-        /// Gets or sets the display name of the Action.
+        /// The configuration to use when performing the action.
         /// </summary>
-        string Name { get; set; }
+        ActionConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Sets-up the action ready for execution. 

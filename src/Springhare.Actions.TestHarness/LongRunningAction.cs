@@ -1,16 +1,36 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
+using Springhare.Actions.Abstractions;
 using System;
 
 namespace Springhare
 {
-    public class LongRunningAction : IAction
+    /// <summary>
+    /// 
+    /// </summary>
+    public class LongRunningActionDefinition : ActionDefinition
     {
-        public uint Id { get; set; }
+        public LongRunningActionDefinition()
+        {
+            Key = "LRA";
+            Name = "Long Running Action";
+            Description = "Simulates an action that takes a long time to run";
+            Parameters = new[]
+            {
+                new ConfigurationParameterDefinition() { Name = "Duration.Value", Catagory = "General" },
+                new ConfigurationParameterDefinition() { Name = "Duration.Unit", Catagory = "General" }
+            };
+        }
+    }
 
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    /// <summary>
+    /// 
+    /// </summary>
+    public class LongRunningAction : IActionRuntime
+    {
+        public string Key { get; set; }
 
-        public ConfigurationParameterCollection Configuration { get; set; }
+        public ActionConfiguration Configuration { get; set; } = new ActionConfiguration();
 
         public ActionResult Execute()
         {
