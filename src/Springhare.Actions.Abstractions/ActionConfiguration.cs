@@ -41,33 +41,33 @@ namespace Springhare.Actions.Abstractions
 
         public bool IsReadOnly => false;
 
-        public dynamic this[string name]
+        public dynamic this[string key]
         {
             get
             {
-                return _Parameters[name].Value;
+                return _Parameters[key].Value;
             }
 
             set
             {
-                _Parameters[name].Value = value;
+                _Parameters[key].Value = value;
             }
         }
 
         public bool Contains(ConfigurationParameter item)
         {
-            return _Parameters.ContainsKey(item.Name);
+            return _Parameters.ContainsKey(item.Key);
         }
 
         public void Add(string name, dynamic value)
         {
             var param = new ConfigurationParameter(name, value);
-            _Parameters.Add(param.Name, param);
+            _Parameters.Add(param.Key, param);
         }
 
         public void Add(ConfigurationParameter item)
         {
-            _Parameters.Add(item.Name, item);
+            _Parameters.Add(item.Key, item);
         }
 
         public bool Remove(string name)
@@ -77,7 +77,7 @@ namespace Springhare.Actions.Abstractions
 
         public bool Remove(ConfigurationParameter item)
         {
-            return _Parameters.Remove(item.Name);
+            return _Parameters.Remove(item.Key);
         }
 
         public void Clear()

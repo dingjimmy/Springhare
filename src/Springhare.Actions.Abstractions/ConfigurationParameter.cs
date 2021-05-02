@@ -10,9 +10,9 @@ namespace Springhare.Actions.Abstractions
     public class ConfigurationParameter
     {
         /// <summary>
-        /// Gets the name of the parameter.
+        /// Gets the key of the parameter.
         /// </summary>
-        public string Name { get; }
+        public string Key { get; }
 
         /// <summary>
         /// Gets or sets the value of the parameter.
@@ -22,9 +22,9 @@ namespace Springhare.Actions.Abstractions
         /// <summary>
         /// Creates a new instance of the <see cref="ConfigurationParameter" /> class.
         /// </summary>
-        public ConfigurationParameter(string name, dynamic value)
+        public ConfigurationParameter(string key, dynamic value)
         {
-            Name = string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentNullException(nameof(name));
+            Key = !string.IsNullOrWhiteSpace(key) ? key : throw new ArgumentNullException(nameof(key));
             Value = value ?? throw new ArgumentNullException(nameof(value));
         }
     }
