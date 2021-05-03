@@ -52,7 +52,7 @@ namespace Springhare.Actions.Abstractions
         /// </summary>
         public ConfigurationParameter CreateConfiguration()
         {
-            return new ConfigurationParameter(Name, DefaultValue);
+            return new ConfigurationParameter(Key, DefaultValue);
         }
     }
 }

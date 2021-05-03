@@ -1,5 +1,6 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
+using System;
 using System.Collections.Generic;
 
 namespace Springhare.Actions.Abstractions
@@ -27,12 +28,11 @@ namespace Springhare.Actions.Abstractions
         /// <summary>
         /// Gets a collection of parameter definitions.
         /// </summary>
-        public IEnumerable<ConfigurationParameterDefinition> Parameters { get; set; }
+        public IDictionary<string, ConfigurationParameterDefinition> Parameters { get; set; } = new Dictionary<string, ConfigurationParameterDefinition>();
 
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
         public ActionConfiguration CreateConfiguration()
         {
             var config = new ActionConfiguration()
@@ -41,7 +41,7 @@ namespace Springhare.Actions.Abstractions
                 Name = "unnamed action"
             };
 
-            foreach (var param in Parameters)
+            foreach (var param in Parameters.Values)
             {
                 config.Add(param.CreateConfiguration());
             }

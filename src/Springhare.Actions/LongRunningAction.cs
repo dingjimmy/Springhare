@@ -15,24 +15,27 @@ namespace Springhare.Actions.LongRunningAction
             Key = "LRA";
             Name = "Long Running Action";
             Description = "Simulates an action that takes a long time to execute";
-            Parameters = new[]
-            {
-                new ConfigurationParameterDefinition() 
-                {
-                    Key = "Duration.Value", 
-                    Name= "Duration", 
-                    Catagory = "General",
-                    Description = "The length of time the action should execute for."
-                },
+
+            Parameters.Add("Duration.Value",
                 new ConfigurationParameterDefinition()
-                { 
-                    Key = "Duration.Unit", 
-                    Name = "Units", 
+                {
+                    Key = "Duration.Value",
+                    Name = "Duration",
                     Catagory = "General",
-                    AvailableValues = new string[] {"Seconds", "Minuites" },
-                    Description = "The unit of time to use "
-                }
-            };
+                    Description = "The length of time the action should execute for.",
+                    DefaultValue = "30"
+                });
+
+            Parameters.Add("Duration.Unit",
+                new ConfigurationParameterDefinition()
+                {
+                    Key = "Duration.Unit",
+                    Name = "Units",
+                    Catagory = "General",
+                    AvailableValues = new string[] { "Seconds", "Minuites" },
+                    Description = "The unit of time to use ",
+                    DefaultValue = "Seconds"
+                });
         }
     }
 

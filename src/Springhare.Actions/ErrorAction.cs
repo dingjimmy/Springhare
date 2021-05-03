@@ -1,6 +1,7 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
 using Springhare.Actions.Abstractions;
+using System.Linq;
 
 namespace Springhare.Actions.ErrorAction
 {
@@ -11,16 +12,14 @@ namespace Springhare.Actions.ErrorAction
             Key = "ERA";
             Name = "Error Action";
             Description = "Simulates an action that causes errors.";
-            Parameters = new[]
-            {
-                new ConfigurationParameterDefinition() 
-                { 
-                    Key="ErrorRate", 
-                    Name = "Error Rate (%)", 
-                    Catagory = "General", 
-                    Description="No of times per 100 executions, that an error occours."
-                }
-            };
+            Parameters.Add("ErrorRate",
+                new ConfigurationParameterDefinition()
+                {
+                    Key = "ErrorRate",
+                    Name = "Error Rate (%)",
+                    Catagory = "General",
+                    Description = "No of times per 100 executions, that an error occours."
+                });
         }
     }
     public class ErrorAction : IActionRuntime
