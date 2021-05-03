@@ -10,6 +10,6 @@ namespace Springhare.Actions.Abstractions
 {
     public interface IActionProvider
     {
-        
+        IEnumerable<ActionDefinition> GetDefinitions();
     }
 }

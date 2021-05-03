@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.39.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Springhare.Actions.Abstractions\Springhare.Actions.Abstractions.csproj" />
+    <ProjectReference Include="..\Springhare.Actions\Springhare.Actions.csproj" />
   </ItemGroup>
 
 </Project>
