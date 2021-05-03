@@ -30,6 +30,11 @@ namespace Springhare.Actions.Abstractions
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or sets the default value for this parameter.
+        /// </summary>
+        public string DefaultValue { get; set; } = string.Empty;
+
+        /// <summary>
         /// Gets or sets a collection of set values for a user to choose from.
         /// </summary>
         public IEnumerable<string> AvailableValues { get; set; }
@@ -47,7 +52,7 @@ namespace Springhare.Actions.Abstractions
         /// </summary>
         public ConfigurationParameter CreateConfiguration()
         {
-            return new ConfigurationParameter(Name, null);
+            return new ConfigurationParameter(Name, DefaultValue);
         }
     }
 }
