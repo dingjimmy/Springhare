@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Activities\Springhare.Activities.Abstractions\Springhare.Activities.Abstractions.csproj" />
+    <ProjectReference Include="..\Springhare.Activities.Abstractions\Springhare.Activities.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
