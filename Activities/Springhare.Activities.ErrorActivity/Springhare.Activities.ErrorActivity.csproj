@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Springhare.Activities</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Activities\Springhare.Activities.Abstractions\Springhare.Activities.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
