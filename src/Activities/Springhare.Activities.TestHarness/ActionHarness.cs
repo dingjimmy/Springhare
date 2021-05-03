@@ -1,10 +1,10 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
-using Springhare.Actions;
-using Springhare.Actions.Abstractions;
+using Springhare.Activities;
+using Springhare.Activities.Abstractions;
 using System.Linq;
 
-namespace Springhare
+namespace Springhare.Activities.TestHarness
 {
     class ActionHarness
     {

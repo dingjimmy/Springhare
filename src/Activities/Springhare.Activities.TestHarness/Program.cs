@@ -1,22 +1,22 @@
 ﻿using Spectre.Console;
 using Spectre.Console.Cli;
-using Springhare.Actions.Abstractions;
+using Springhare.Activities.Abstractions;
 using System;
 using System.Linq;
 
-namespace Springhare.Actions.TestHarness
+namespace Springhare.Activities.TestHarness
 {
     class Program
     {
         static void Main(string[] args)
         {
-            IActionProvider provider = new ActionProvider();
+            IActivityProvider provider = new ActivityProvider();
 
 
 
-            // 1. Choose Actions
+            // 1. Choose Activitys
             var choosePrompt = new SelectionPrompt<string>()
-                .Title("Select an action to run...");
+                .Title("Select an Activity to run...");
 
             var definitions = provider.GetDefinitions()
                 .ToDictionary(x => x.Name, x => x);
@@ -32,7 +32,7 @@ namespace Springhare.Actions.TestHarness
 
 
 
-            // 2. Configure Action
+            // 2. Configure Activity
             AnsiConsole.MarkupLine($"Configure {definition.Name}");
 
             var config = definition.CreateConfiguration();
@@ -44,7 +44,7 @@ namespace Springhare.Actions.TestHarness
 
 
 
-            // 3. Execute Action
+            // 3. Execute Activity
 
 
         }

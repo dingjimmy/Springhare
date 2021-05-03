@@ -1,33 +1,33 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
-using Springhare.Actions.Abstractions;
+using Springhare.Activities.Abstractions;
 using System;
 
-namespace Springhare.Actions.LongRunningAction
+namespace Springhare.Activities.LongRunningAction
 {
     /// <summary>
     /// 
     /// </summary>
-    public class LongRunningActionDefinition : ActionDefinition
+    public class LongRunningActivityDefinition : ActivityDefinition
     {
-        public LongRunningActionDefinition()
+        public LongRunningActivityDefinition()
         {
             Key = "LRA";
-            Name = "Long Running Action";
-            Description = "Simulates an action that takes a long time to execute";
+            Name = "Long Running Activity";
+            Description = "Simulates an activity that takes a long time to execute";
 
             Parameters.Add("Duration.Value",
-                new ConfigurationParameterDefinition()
+                new ParameterDefinition()
                 {
                     Key = "Duration.Value",
                     Name = "Duration",
                     Catagory = "General",
-                    Description = "The length of time the action should execute for.",
+                    Description = "The length of time the activity should execute for.",
                     DefaultValue = "30"
                 });
 
             Parameters.Add("Duration.Unit",
-                new ConfigurationParameterDefinition()
+                new ParameterDefinition()
                 {
                     Key = "Duration.Unit",
                     Name = "Units",
@@ -38,19 +38,19 @@ namespace Springhare.Actions.LongRunningAction
                 });
         }
 
-        public override IActionRuntime CreateAction() => new LongRunningAction();
+        public override IActivity CreateActivity() => new LongRunningActivity();
     }
 
     /// <summary>
     /// 
     /// </summary>
-    public class LongRunningAction : IActionRuntime
+    public class LongRunningActivity : IActivity
     {
         public string Key => "LRA";
 
-        public ActionConfiguration Configuration { get; set; }
+        public ActivityConfiguration Configuration { get; set; }
 
-        public ActionResult Execute()
+        public ActivityResult Execute()
         {
             TimeSpan duration;
 
@@ -68,22 +68,22 @@ namespace Springhare.Actions.LongRunningAction
                     duration = new TimeSpan(durationVal, 0, 0);
                     break;
                 default:
-                    return ActionResult.Failed;
+                    return ActivityResult.Failed;
             }
 
             System.Threading.Tasks.Task.Delay(duration).Wait();
 
-            return ActionResult.Success;
+            return ActivityResult.Success;
         }
 
-        public ActionResult Setup()
+        public ActivityResult Setup()
         {
-            return ActionResult.Success;
+            return ActivityResult.Success;
         }
 
-        public ActionResult Teardown()
+        public ActivityResult Teardown()
         {
-            return ActionResult.Success;
+            return ActivityResult.Success;
         }
     }
 }

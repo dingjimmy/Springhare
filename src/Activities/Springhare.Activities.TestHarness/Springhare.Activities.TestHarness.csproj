@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Springhare.Actions.Abstractions\Springhare.Actions.Abstractions.csproj" />
-    <ProjectReference Include="..\Springhare.Actions\Springhare.Actions.csproj" />
+    <ProjectReference Include="..\Springhare.Activities.Abstractions\Springhare.Activities.Abstractions.csproj" />
+    <ProjectReference Include="..\Springhare.Activities\Springhare.Activities.csproj" />
   </ItemGroup>
 
 </Project>

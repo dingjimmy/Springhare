@@ -2,15 +2,15 @@
 
 using System.Collections.Generic;
 
-namespace Springhare.Actions.Abstractions
+namespace Springhare.Activities.Abstractions
 {
     /// <summary>
-    /// Defines a configuration parameter that is required for an action to operate. 
+    /// Defines a configuration parameter that is required for an activity to operate. 
     /// </summary>
-    public class ConfigurationParameterDefinition
+    public class ParameterDefinition
     {
          /// <summary>
-        /// Gets or sets a value which uniquley identifies the parameter within the action.
+        /// Gets or sets a value which uniquley identifies the parameter within the activity.
         /// </summary>
         public string Key { get; set; }
 
@@ -50,9 +50,9 @@ namespace Springhare.Actions.Abstractions
         /// <summary>
         /// Creates a new instance of the <see cref="ConfigurationParameter"/> class, using the info from this definition.
         /// </summary>
-        public ConfigurationParameter CreateConfiguration()
+        public Parameter CreateConfiguration()
         {
-            return new ConfigurationParameter(Key, DefaultValue);
+            return new Parameter(Key, DefaultValue);
         }
     }
 }

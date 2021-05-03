@@ -3,39 +3,39 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Springhare.Actions.Abstractions
+namespace Springhare.Activities.Abstractions
 {
     /// <summary>
-    /// Represents a configured instance of an Action; a collection of paramters that configure the actions behaviour at runtime.
+    /// A collection of paramters that configure an activities behaviour at runtime.
     /// </summary>
-    public class ActionConfiguration : ICollection<ConfigurationParameter>
+    public class ActivityConfiguration : ICollection<Parameter>
     {
         ///<Summary>
-        /// Gets or sets a value which uniquley identifies the configured Action.
+        /// Gets or sets a value which uniquley identifies the activity being configured.
         ///</Summary>
         public uint Id { get; set; }
 
         ///<Summary>
-        /// Gets or sets a value which uniquley identifies the action being configured.
+        /// Gets or sets a value which uniquley identifies the activity being configured.
         ///</Summary>
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or sets human-friendly name to help users to identify the configured Action. Default value is 'unnamed configuration'.
+        /// Gets or sets human-friendly name to help users to identify the configured activity. Default value is 'unnamed configuration'.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Creates a new instance of the <see cref="ActionConfiguration"/> class.
+        /// Creates a new instance of the <see cref="ActivityConfiguration"/> class.
         /// </summary>
-        public ActionConfiguration()
+        public ActivityConfiguration()
         {
             Name = "unnamed configuration";
         }
 
         #region ICollection<T> Implementation
 
-        private readonly Dictionary<string, ConfigurationParameter> _Parameters = new Dictionary<string, ConfigurationParameter>();
+        private readonly Dictionary<string, Parameter> _Parameters = new Dictionary<string, Parameter>();
         
         public int Count => _Parameters.Count;
 
@@ -54,18 +54,18 @@ namespace Springhare.Actions.Abstractions
             }
         }
 
-        public bool Contains(ConfigurationParameter item)
+        public bool Contains(Parameter item)
         {
             return _Parameters.ContainsKey(item.Key);
         }
 
         public void Add(string name, dynamic value)
         {
-            var param = new ConfigurationParameter(name, value);
+            var param = new Parameter(name, value);
             _Parameters.Add(param.Key, param);
         }
 
-        public void Add(ConfigurationParameter item)
+        public void Add(Parameter item)
         {
             _Parameters.Add(item.Key, item);
         }
@@ -75,7 +75,7 @@ namespace Springhare.Actions.Abstractions
             return _Parameters.Remove(name);
         }
 
-        public bool Remove(ConfigurationParameter item)
+        public bool Remove(Parameter item)
         {
             return _Parameters.Remove(item.Key);
         }
@@ -85,12 +85,12 @@ namespace Springhare.Actions.Abstractions
             _Parameters.Clear();
         }
 
-        public void CopyTo(ConfigurationParameter[] array, int arrayIndex)
+        public void CopyTo(Parameter[] array, int arrayIndex)
         {
             _Parameters.Values.CopyTo(array, arrayIndex);
         }
 
-        public IEnumerator<ConfigurationParameter> GetEnumerator()
+        public IEnumerator<Parameter> GetEnumerator()
         {
             return _Parameters.Values.GetEnumerator();
         }

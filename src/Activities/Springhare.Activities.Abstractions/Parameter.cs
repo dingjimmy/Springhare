@@ -2,12 +2,12 @@
 
 using System;
 
-namespace Springhare.Actions.Abstractions
+namespace Springhare.Activities.Abstractions
 {
     /// <summary>
     /// Represents a value that is used to configure how an action behaves at runtime.
     /// </summary>
-    public class ConfigurationParameter
+    public class Parameter
     {
         /// <summary>
         /// Gets the key of the parameter.
@@ -20,9 +20,9 @@ namespace Springhare.Actions.Abstractions
         public dynamic Value { get; set; }
 
         /// <summary>
-        /// Creates a new instance of the <see cref="ConfigurationParameter" /> class.
+        /// Creates a new instance of the <see cref="Parameter" /> class.
         /// </summary>
-        public ConfigurationParameter(string key, dynamic value)
+        public Parameter(string key, dynamic value)
         {
             Key = !string.IsNullOrWhiteSpace(key) ? key : throw new ArgumentNullException(nameof(key));
             Value = value ?? throw new ArgumentNullException(nameof(value));
