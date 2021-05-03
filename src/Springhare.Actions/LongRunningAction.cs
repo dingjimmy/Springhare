@@ -37,6 +37,8 @@ namespace Springhare.Actions.LongRunningAction
                     DefaultValue = "Seconds"
                 });
         }
+
+        public override IActionRuntime CreateAction() => new LongRunningAction();
     }
 
     /// <summary>

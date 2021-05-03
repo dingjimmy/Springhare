@@ -21,6 +21,9 @@ namespace Springhare.Actions.ErrorAction
                     Description = "No of times per 100 executions, that an error occours."
                 });
         }
+
+        public override IActionRuntime CreateAction() => new ErrorAction();
+
     }
     public class ErrorAction : IActionRuntime
     {

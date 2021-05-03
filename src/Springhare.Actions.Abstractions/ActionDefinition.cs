@@ -8,7 +8,7 @@ namespace Springhare.Actions.Abstractions
     /// <summary>
     /// Defines the static parts of an action such as name, description and required parameters.
     /// </summary>
-    public class ActionDefinition
+    public abstract class ActionDefinition
     {
         ///<Summary>
         /// Gets or sets a value which uniquley identifies the action.
@@ -31,7 +31,7 @@ namespace Springhare.Actions.Abstractions
         public IDictionary<string, ConfigurationParameterDefinition> Parameters { get; set; } = new Dictionary<string, ConfigurationParameterDefinition>();
 
         /// <summary>
-        /// 
+        /// Creates a default configuration for the action.
         /// </summary>
         public ActionConfiguration CreateConfiguration()
         {
@@ -46,7 +46,12 @@ namespace Springhare.Actions.Abstractions
                 config.Add(param.CreateConfiguration());
             }
 
-            return config;
+             return config;
         }
+
+        /// <summary>
+        /// Creates a runtime for the desired action.
+        /// </summary>
+        public abstract IActionRuntime CreateAction();
     }
 }
