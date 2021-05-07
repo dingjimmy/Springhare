@@ -6,10 +6,6 @@ namespace Springhare.Activities.Abstractions
 {
     public interface IActivityProvider
     {
-        string ActivityInstallDirectory { get; set; }
-
         IEnumerable<ActivityDefinition> GetDefinitions();
-
-        void LoadDefinitions();
     }
 }

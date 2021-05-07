@@ -12,11 +12,10 @@ namespace Springhare.Activities.TestHarness
     {
         static void Main(string[] args)
         {
-            IActivityProvider provider = new ActivityProvider();
+            ActivityProvider provider = new ActivityProvider();
 
-            // init provider. I know this is brittle, but it is good enough for now; when I need to make this more robust i will.
-            provider.ActivityInstallDirectory = @"C:\Users\ding_\Source\Springhare\src\Activities";
-            provider.LoadDefinitions();
+            // init provider.
+            provider.LoadDefinitions(@"../../../src/Activities");
 
 
 

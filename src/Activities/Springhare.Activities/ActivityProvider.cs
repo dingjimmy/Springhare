@@ -13,14 +13,17 @@ namespace Springhare.Activities
     {
         private Dictionary<string, ActivityDefinition> _Definitions = new Dictionary<string, ActivityDefinition>();
 
-        public string ActivityInstallDirectory { get; set; }
-
-        public void LoadDefinitions()
+        public void LoadDefinitions(string sourceDirectory)
         {
+            if (string.IsNullOrWhiteSpace(sourceDirectory))
+            {
+                throw new ArgumentException($"'{nameof(sourceDirectory)}' cannot be null or whitespace.", nameof(sourceDirectory));
+            }
+
             _Definitions.Clear();
 
             var assembliesToLoad = Directory
-                .GetFiles(ActivityInstallDirectory, "Springhare.Activities.*.dll", SearchOption.AllDirectories)
+                .GetFiles(sourceDirectory, "Springhare.Activities.*.dll", SearchOption.AllDirectories)
                 .Select(x =>
                 {
                     (string Name, string Path) t1 = (Path.GetFileName(x), x);
