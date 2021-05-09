@@ -36,7 +36,5 @@ namespace Springhare.Activities
                     DefaultValue = "Seconds"
                 });
         }
-
-        public override IActivity CreateActivity() => new LongRunningActivity();
     }
 }

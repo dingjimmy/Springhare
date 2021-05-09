@@ -37,6 +37,9 @@ namespace Springhare.Activities.Abstractions
     public enum ActivityResult
     {
         Failed = -1,
-        Success = 0
+
+        NotRun = 0,
+        
+        Success = 1
     }
 }

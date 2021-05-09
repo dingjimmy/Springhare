@@ -3,15 +3,13 @@
 using Springhare.Activities.Abstractions;
 using System;
 
-namespace Springhare.Activities
+namespace Springhare.Activities.LongRunningActivity
 {
     /// <summary>
     /// 
     /// </summary>
-    public class LongRunningActivity : IActivity
+    public class LongRunningActivity
     {
-        public string Key => "LRA";
-
         public IActivityConfiguration Configuration { get; set; }
 
         public ActivityResult Execute()
