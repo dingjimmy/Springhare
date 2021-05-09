@@ -1,5 +1,6 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
+using System;
 using System.Collections.Generic;
 
 namespace Springhare.Activities.Abstractions
@@ -37,7 +38,7 @@ namespace Springhare.Activities.Abstractions
         /// <summary>
         /// Gets or sets a collection of set values for a user to choose from.
         /// </summary>
-        public IEnumerable<string> AvailableValues { get; set; }
+        public IEnumerable<string> AvailableValues { get; set; } = Array.Empty<string>();
 
 
         // TODO: data type?

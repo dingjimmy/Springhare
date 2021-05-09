@@ -40,13 +40,27 @@ namespace Springhare.Activities.TestHarness
 
             foreach (var param in config)
             {
-                param.Value = AnsiConsole.Ask<string>($"{definition.Parameters[param.Key].Name}: ");
+                var paramDef = definition.Parameters[param.Key];
+
+                if (!paramDef.AvailableValues.Any())
+                {
+                    param.Value = AnsiConsole.Ask<string>($"{paramDef.Name}: ");
+                }
+                else
+                {
+                    var prompt = new SelectionPrompt<string>()
+                        .Title($"{paramDef.Name}: ")
+                        .AddChoices(paramDef.AvailableValues);                    
+
+                    param.Value = AnsiConsole.Prompt(prompt);
+                }
             }
 
-
-
             // 3. Execute Activity
-
+            foreach (var param in config)
+            {
+                AnsiConsole.MarkupLine($"[Purple]{param.Key}:[/] {param.Value}");
+            }
 
         }
     }
