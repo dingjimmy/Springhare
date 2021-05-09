@@ -12,7 +12,7 @@ namespace Springhare.Activities
     {
         public string Key => "LRA";
 
-        public ActivityConfiguration Configuration { get; set; }
+        public IActivityConfiguration Configuration { get; set; }
 
         public ActivityResult Execute()
         {

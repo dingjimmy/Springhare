@@ -31,25 +31,6 @@ namespace Springhare.Activities.Abstractions
         public IDictionary<string, ParameterDefinition> Parameters { get; set; } = new Dictionary<string, ParameterDefinition>();
 
         /// <summary>
-        /// Creates a default configuration for the activity.
-        /// </summary>
-        public ActivityConfiguration CreateConfiguration()
-        {
-            var config = new ActivityConfiguration()
-            {
-                Key = this.Key,
-                Name = "unnamed activity"
-            };
-
-            foreach (var param in Parameters.Values)
-            {
-                config.Add(param.CreateConfiguration());
-            }
-
-             return config;
-        }
-
-        /// <summary>
         /// Creates a runtime for the desired activity.
         /// </summary>
         public abstract IActivity CreateActivity();

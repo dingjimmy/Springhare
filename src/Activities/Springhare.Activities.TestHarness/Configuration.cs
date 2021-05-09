@@ -1,17 +1,18 @@
-﻿// Copyright (c) James C Dingle. All rights reserved.
+// Copyright (c) James C Dingle. All rights reserved.
 
+using Springhare.Activities.Abstractions;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Springhare.Activities.Abstractions
+namespace Springhare.Activities.TestHarness
 {
     /// <summary>
     /// A collection of paramters that configure an activities behaviour at runtime.
     /// </summary>
-    public class ActivityConfiguration : ICollection<Parameter>
+    public class Configuration : IActivityConfiguration, ICollection<Parameter>
     {
         ///<Summary>
-        /// Gets or sets a value which uniquley identifies the activity being configured.
+        /// Gets or sets a value which uniquley identifies the configuration
         ///</Summary>
         public uint Id { get; set; }
 
@@ -21,14 +22,33 @@ namespace Springhare.Activities.Abstractions
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or sets human-friendly name to help users to identify the configured activity. Default value is 'unnamed configuration'.
+        /// Gets or sets user-provided name to help identify the configuration. Default value is 'unnamed configuration'.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
+        /// Creates a default configuration for a given activity.
+        /// </summary>
+        public static Configuration CreateConfiguration(ActivityDefinition definition)
+        {
+            var config = new Configuration()
+            {
+                Key = definition.Key,
+                Name = "unnamed activity"
+            };
+
+            foreach (var parameterDefinition in definition.Parameters.Values)
+            {
+                config.Add(new Parameter(parameterDefinition.Key, parameterDefinition.DefaultValue));
+            }
+
+             return config;
+        }
+
+        /// <summary>
         /// Creates a new instance of the <see cref="ActivityConfiguration"/> class.
         /// </summary>
-        public ActivityConfiguration()
+        public Configuration()
         {
             Name = "unnamed configuration";
         }
@@ -36,7 +56,7 @@ namespace Springhare.Activities.Abstractions
         #region ICollection<T> Implementation
 
         private readonly Dictionary<string, Parameter> _Parameters = new Dictionary<string, Parameter>();
-        
+
         public int Count => _Parameters.Count;
 
         public bool IsReadOnly => false;

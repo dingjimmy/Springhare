@@ -8,7 +8,7 @@ namespace Springhare.Activities
     {
         public string Key => "ERA";
 
-        public ActivityConfiguration Configuration { get; set; }
+        public IActivityConfiguration Configuration { get; set; }
 
         public ActivityResult Execute()
         {

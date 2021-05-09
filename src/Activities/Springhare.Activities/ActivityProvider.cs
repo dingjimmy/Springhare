@@ -42,9 +42,9 @@ namespace Springhare.Activities
                     continue;
                 }
 
-                var loadedAssembly = Assembly.LoadFrom(assemblyInfo.Path);
+                var assembly = Assembly.LoadFrom(assemblyInfo.Path);
 
-                var types = loadedAssembly.GetTypes().Where(x => x.IsSubclassOf(typeof(ActivityDefinition)));
+                var types = assembly.GetTypes().Where(x => x.IsSubclassOf(typeof(ActivityDefinition)));
 
                 foreach (var type in types)
                 {

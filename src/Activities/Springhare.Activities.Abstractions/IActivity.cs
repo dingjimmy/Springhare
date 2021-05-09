@@ -15,7 +15,7 @@ namespace Springhare.Activities.Abstractions
         /// <summary>
         /// The configuration to use when executing the activity.
         /// </summary>
-        ActivityConfiguration Configuration { get; set; }
+        IActivityConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Sets-up the activity ready for execution. 

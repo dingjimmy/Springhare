@@ -1,8 +1,9 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
 using System;
+using Springhare.Activities.Abstractions;
 
-namespace Springhare.Activities.Abstractions
+namespace Springhare.Activities.TestHarness
 {
     /// <summary>
     /// Represents a value that is used to configure how an action behaves at runtime.

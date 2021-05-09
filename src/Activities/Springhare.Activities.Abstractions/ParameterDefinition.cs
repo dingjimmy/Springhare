@@ -46,13 +46,5 @@ namespace Springhare.Activities.Abstractions
         // TODO: validation rules?
         //public ConfigurationParameterRules { get; set; }
 
-
-        /// <summary>
-        /// Creates a new instance of the <see cref="ConfigurationParameter"/> class, using the info from this definition.
-        /// </summary>
-        public Parameter CreateConfiguration()
-        {
-            return new Parameter(Key, DefaultValue);
-        }
     }
 }

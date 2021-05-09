@@ -1,10 +1,5 @@
 ﻿using Spectre.Console;
-using Spectre.Console.Cli;
-using Springhare.Activities.Abstractions;
-using System;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 
 namespace Springhare.Activities.TestHarness
 {
@@ -41,7 +36,7 @@ namespace Springhare.Activities.TestHarness
             // 2. Configure Activity
             AnsiConsole.MarkupLine($"Configure {definition.Name}");
 
-            var config = definition.CreateConfiguration();
+            var config = Configuration.CreateConfiguration(definition);
 
             foreach (var param in config)
             {
