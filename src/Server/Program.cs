@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Orleans;
 using Orleans.Configuration;
 using Orleans.Hosting;
-using Springhare.Activities.Abstractions;
+using Springhare.Grains.Abstractions;
 
 namespace Server
 {
@@ -39,8 +39,14 @@ namespace Server
                     options.ClusterId = "dev";
                     options.ServiceId = "OrleansBasics";
                 })
-                .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(IActivity).Assembly).WithReferences())
-                .ConfigureLogging(logging => logging.AddConsole());
+                //.ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(IActivity).Assembly).WithReferences())
+                .ConfigureLogging(logging => logging.AddConsole())
+                .AddAdoNetGrainStorage("demoStore", options => 
+                {
+                    options.Invariant = "System.Data.SQLite";
+                    options.UseJsonFormat = true;
+                    options.ConnectionString = "Data Source=../data/springhare.db";
+                });
 
             var host = builder.Build();
             await host.StartAsync();

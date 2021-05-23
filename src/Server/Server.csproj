@@ -7,10 +7,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Orleans.Server" Version="3.4.2" />
+    <PackageReference Include="Microsoft.Orleans.Persistence.AdoNet" Version="3.4.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="5.0.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Grains\Springhare.Grains\Springhare.Grains.csproj" />
     <ProjectReference Include="..\Grains\Springhare.Grains.Abstractions\Springhare.Grains.Abstractions.csproj" />
   </ItemGroup>
 

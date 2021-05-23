@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Orleans;
 
-namespace Springhare.Activities.Abstractions
+namespace Springhare.Grains.Abstractions
 {
     public interface IActivity : IGrainWithGuidKey
     {

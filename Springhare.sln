@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{2F33B95D-C42C-4F3F-B324-6F9D4A59C6FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "src\Client\Client.csproj", "{2F33B95D-C42C-4F3F-B324-6F9D4A59C6FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{514ED2FA-75E8-467A-964D-B8944DD250E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "src\Server\Server.csproj", "{514ED2FA-75E8-467A-964D-B8944DD250E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Grains", "Grains", "{5E5908A6-B3B7-40AF-A214-31AF1393FA6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Grains", "Grains\Springhare.Grains\Springhare.Grains.csproj", "{A5F51E8A-FB92-4B6E-82A1-B2EF43526899}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Grains", "src\Grains\Springhare.Grains\Springhare.Grains.csproj", "{A5F51E8A-FB92-4B6E-82A1-B2EF43526899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Grains.Abstractions", "Grains\Springhare.Grains.Abstractions\Springhare.Grains.Abstractions.csproj", "{EF00871A-878E-4018-86E4-CAF37AA8F403}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Grains.Abstractions", "src\Grains\Springhare.Grains.Abstractions\Springhare.Grains.Abstractions.csproj", "{EF00871A-878E-4018-86E4-CAF37AA8F403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

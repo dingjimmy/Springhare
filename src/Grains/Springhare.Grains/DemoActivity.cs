@@ -1,17 +1,21 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Orleans;
-using Springhare.Activities.Abstractions;
+using Orleans.Runtime;
+
+using Springhare.Grains.Abstractions;
 
 namespace Springhare.Grains
 {
     public class DemoActivity : Grain, IActivity
     {
         private readonly ILogger _Logger;
+        private readonly IPersistentState<DemoActivityState> _State;
 
-        public DemoActivity(ILogger logger)
+        public DemoActivity(ILogger logger, [PersistentState("demo", "demoStore")] IPersistentState<DemoActivityState> demoState)
         {
             _Logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
+            _State = demoState;
         }
 
         public async Task Startup()
@@ -34,5 +38,10 @@ namespace Springhare.Grains
 
             await Task.Delay(2000);
         }
+    }
+
+    public class DemoActivityState
+    {
+        public long PulseCount { get; set; }
     }
 }
