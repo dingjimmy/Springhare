@@ -58,7 +58,7 @@ namespace Springhare.Workflow
 GET  -> http://localhost/counters
 
 // add new counter with settings
-POST -> http://localhost/counters {STARTAT:1, INCREMENT:5}
+POST -> http://localhost/counters {ID: 271, STARTAT:1, INCREMENT:5}
 
 // run counter 271
 PATCH -> http://localhost/counters/271 {STATE:run}
@@ -69,7 +69,7 @@ GET  -> http://localhost/counters/271
 // run counter 271 again
 PATCH -> http://localhost/counters/271 {STATE:run}
 
-// get current state of counter 271
+// get current progress of counter 271
 GET  -> http://localhost/counters/271 
 
 // abort counter 271

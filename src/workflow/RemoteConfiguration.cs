@@ -8,7 +8,7 @@ namespace Springhare.Workflow
         /// Gets or sets the url of the remote resource that represents a running a step
         /// </summary>
         /// <remarks>
-        /// POST initialises the step, PUT rGET retrieves current progress of the step and DEL aborts the step.
+        /// POST creates and initialises the step, PATCH starts and stops the step, GET retrieves current progress, and DEL removes the step from memory.
         /// </remarks>
         public Uri ResourceUri { get; set; }
 
