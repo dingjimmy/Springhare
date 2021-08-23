@@ -15,38 +15,69 @@ namespace Springhare.Workflow
 
         public RemoteConfiguration Remote { get; set; }
 
+        /// <summary>
+        /// Creates a new instance of the <see 
+        /// </summary>
         public Step(HttpClient httpClient)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task InitialiseAsync()
         {
             await _httpClient.PostAsJsonAsync(Remote.ResourceUri, Configuration);
         }
 
         /// <summary>
-        /// Run the step .
+        /// Retrieves the current progress of the step.
         /// </summary>
-        public async Task RunAsync()
+        public async Task<StepProgress> CheckProgressAsync()
         {
-            await _httpClient.PutAsJsonAsync(Remote.ResourceUri, StepState.Running);
+            var response = await _httpClient.GetAsync(Remote.ResourceUri);
+            
+            if (!response.IsSuccessStatusCode) throw new CheckStepProgressFailedException();
+
+            return await response.Content.ReadFromJsonAsync<StepProgress>();
         }
 
         /// <summary>
-        /// Abort running the step.
+        /// Triggers step to start running.
         /// </summary>
-        public async Task Abort()
+        public async Task StartAsync()
         {
-            await _httpClient.DeleteAsync(Remote.ResourceUri);
+            var response = await _httpClient.PutAsJsonAsync(Remote.ResourceUri, StepState.Running);
+            
+            if (!response.IsSuccessStatusCode) throw new StartStepFailedException();
+        }
+
+        /// <summary>
+        /// Triggers the setp to abort the current run.
+        /// </summary>
+        public async Task AbortAsync()
+        {
+            var response = await _httpClient.DeleteAsync(Remote.ResourceUri);
+
+            if (!response.IsSuccessStatusCode) throw new AbortStepFailedException();
         }
     }
 
     public enum StepState
     {
+
         Initialising,
         Waiting,
-        Running
+        Running,
+        Successfull,
+        Aborted
+    }
+
+    public class StepProgress
+    {
+        public StepState State { get; set; }    
     }
 }
 
