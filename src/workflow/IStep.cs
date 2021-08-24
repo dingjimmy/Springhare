@@ -17,7 +17,7 @@ namespace Springhare.Workflow
         /// Prepares the step ready for running.
         /// </summary>
         Task InitialiseAsync(CancellationToken token);
-        
+
         /// <summary>
         /// Triggers step to start running.
         /// </summary>
@@ -28,3 +28,4 @@ namespace Springhare.Workflow
         /// </summary>
         Task AbortAsync(CancellationToken token);
     }
+}
