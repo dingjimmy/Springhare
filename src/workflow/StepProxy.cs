@@ -1,11 +1,13 @@
 using System;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Springhare.Workflow
 {
-    public class Step
+
+    public class StepProxy : IStep
     {
         private readonly HttpClient _httpClient;
 
@@ -18,46 +20,45 @@ namespace Springhare.Workflow
         /// <summary>
         /// Creates a new instance of the <see 
         /// </summary>
-        public Step(HttpClient httpClient)
+        public StepProxy(HttpClient httpClient)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
         /// <summary>
-        /// 
+        /// Prepares the step ready for running.
         /// </summary>
-        /// <returns></returns>
-        public async Task InitialiseAsync()
+        public async Task InitialiseAsync(CancellationToken token)
         {
             await _httpClient.PostAsJsonAsync(Remote.ResourceUri, Configuration);
         }
 
-        /// <summary>
-        /// Retrieves the current progress of the step.
-        /// </summary>
-        public async Task<StepProgress> CheckProgressAsync()
-        {
-            var response = await _httpClient.GetAsync(Remote.ResourceUri);
-            
-            if (!response.IsSuccessStatusCode) throw new CheckStepProgressFailedException();
+        // /// <summary>
+        // /// Retrieves the current progress of the step.
+        // /// </summary>
+        // private async Task<StepProgress> CheckProgressAsync()
+        // {
+        //     var response = await _httpClient.GetAsync(Remote.ResourceUri);
 
-            return await response.Content.ReadFromJsonAsync<StepProgress>();
-        }
+        //     if (!response.IsSuccessStatusCode) throw new CheckStepProgressFailedException();
+
+        //     return await response.Content.ReadFromJsonAsync<StepProgress>();
+        // }
 
         /// <summary>
         /// Triggers step to start running.
         /// </summary>
-        public async Task StartAsync()
+        public async Task StartAsync(CancellationToken token)
         {
             var response = await _httpClient.PutAsJsonAsync(Remote.ResourceUri, StepState.Running);
-            
+
             if (!response.IsSuccessStatusCode) throw new StartStepFailedException();
         }
 
         /// <summary>
         /// Triggers the setp to abort the current run.
         /// </summary>
-        public async Task AbortAsync()
+        public async Task AbortAsync(CancellationToken token)
         {
             var response = await _httpClient.DeleteAsync(Remote.ResourceUri);
 
