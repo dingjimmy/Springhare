@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Action Services", "Action Services", "{83BDB35A-6163-423B-850C-D46C1155FF29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Poc", "Poc", "{89CD8B10-D863-4E65-879B-65B198E5B4BC}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "SpringhareActions.Poc.FrontEnd", "Action Services\Poc\Springhare.Actions.Poc.FrontEnd\SpringhareActions.Poc.FrontEnd.esproj", "{BDC39938-CB39-4688-9E63-6AB9A4E05CBC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Springhare.Actions.Poc.Service", "Action Services\Poc\Springhare.Actions.Poc.Service\Springhare.Actions.Poc.Service.csproj", "{11F43D16-97A4-49A7-A69E-D536A8FA9434}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Springhare.Actions.Poc.Service.Tests", "Action Services\Poc\Springhare.Actions.Poc.Service.Tests\Springhare.Actions.Poc.Service.Tests.csproj", "{70F239DF-DD0D-4843-96B7-6E85B49094DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runtime Service", "Runtime Service", "{BBCD48B9-A997-4D68-BD03-9BA2C7C64700}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Administration Service", "Administration Service", "{77EF3868-BF12-4D2E-8A19-D248A15EA083}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd Service", "FrontEnd Service", "{055F3702-21E0-4E40-95B9-189FDEA7DF52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDC39938-CB39-4688-9E63-6AB9A4E05CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC39938-CB39-4688-9E63-6AB9A4E05CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC39938-CB39-4688-9E63-6AB9A4E05CBC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BDC39938-CB39-4688-9E63-6AB9A4E05CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC39938-CB39-4688-9E63-6AB9A4E05CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC39938-CB39-4688-9E63-6AB9A4E05CBC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{11F43D16-97A4-49A7-A69E-D536A8FA9434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F43D16-97A4-49A7-A69E-D536A8FA9434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F43D16-97A4-49A7-A69E-D536A8FA9434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F43D16-97A4-49A7-A69E-D536A8FA9434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F239DF-DD0D-4843-96B7-6E85B49094DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F239DF-DD0D-4843-96B7-6E85B49094DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F239DF-DD0D-4843-96B7-6E85B49094DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F239DF-DD0D-4843-96B7-6E85B49094DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89CD8B10-D863-4E65-879B-65B198E5B4BC} = {83BDB35A-6163-423B-850C-D46C1155FF29}
+		{BDC39938-CB39-4688-9E63-6AB9A4E05CBC} = {89CD8B10-D863-4E65-879B-65B198E5B4BC}
+		{11F43D16-97A4-49A7-A69E-D536A8FA9434} = {89CD8B10-D863-4E65-879B-65B198E5B4BC}
+		{70F239DF-DD0D-4843-96B7-6E85B49094DF} = {89CD8B10-D863-4E65-879B-65B198E5B4BC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {505A10A2-E44D-4103-A536-5AFAA8BEDD62}
+	EndGlobalSection
+EndGlobal
