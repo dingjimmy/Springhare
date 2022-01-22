@@ -60,7 +60,7 @@ namespace Springhare.Actions.Poc.Service.Controllers
  *  2.1 Invoke session: [POST] api/session/{id}/invokation
  *    - invoke the action, using provided input & saving any outputs
  *    
- *  2.2 Check invokation complete: [GET] api/session/{id}/invokation{id}
+ *  2.2 Check invokation complete: [GET] api/session/{id}/invokation/{id}
  *    - If invokation still active, check again later. 
  *
  *  2.3 When invokation completes, retrieve any data: [GET] api/session/{id}/invokation/{id}/data
