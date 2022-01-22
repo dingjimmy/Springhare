@@ -43,3 +43,34 @@ namespace Springhare.Actions.Poc.Service.Controllers
         }
     }
 }
+
+
+/*
+ * # MODEL
+ * 
+ *   Session: an instance of an action, that represets multiple related invokations of it.
+ *   Invokation: a single execution of the action; takes an input, processess and provides an output.
+ *   
+ * 
+ * # SEQUENCE
+ * 
+ *  1. Create session: [POST] api/session
+ *     - create and setup a session using provided configuration, so that it is ready to run
+ *     
+ *  2.1 Invoke session: [POST] api/session/{id}/invokation
+ *    - invoke the action, using provided input & saving any outputs
+ *    
+ *  2.2 Check invokation complete: [GET] api/session/{id}/invokation{id}
+ *    - If invokation still active, check again later. 
+ *
+ *  2.3 When invokation completes, retrieve any data: [GET] api/session/{id}/invokation/{id}/data
+ *  
+ *  2.4 When need to prematurly terminate an invokation: [DELETE] api/session/{id}/invokation/{id}
+ *  
+ *  2.4 Continue invoking until session no longer needed. Handle failed invokations when they occur.
+ *  
+ *  3. Destroy session: [DELETE] api/session/{id}
+ *     - Stop any active invokations
+ *     - Clean-up resources
+ * 
+ */
