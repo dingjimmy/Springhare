@@ -65,7 +65,7 @@ namespace Springhare.Actions.Poc.Service.Controllers
  *
  *  2.3 When invokation completes, retrieve any data: [GET] api/session/{id}/invokation/{id}/data
  *  
- *  2.4 When need to prematurly terminate an invokation: [DELETE] api/session/{id}/invokation/{id}
+ *  2.4 If need to prematurly terminate an invokation: [DELETE] api/session/{id}/invokation/{id}
  *  
  *  2.4 Continue invoking until session no longer needed. Handle failed invokations when they occur.
  *  
