@@ -1,5 +1,7 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
+using System.Collections.Concurrent;
+
 namespace Springhare.Actions.Poc.Service.Model
 {
     /// <summary>
@@ -16,6 +18,11 @@ namespace Springhare.Actions.Poc.Service.Model
         /// Gets the action this session is responsible for.
         /// </summary>
         public Action Action { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ConcurrentDictionary<Guid, TData> Data { get; }
 
         /// <summary>
         /// 
