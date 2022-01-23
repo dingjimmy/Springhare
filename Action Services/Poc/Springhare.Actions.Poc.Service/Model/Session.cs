@@ -46,17 +46,17 @@ namespace Springhare.Actions.Poc.Service.Model
             State = startingState;
         }
 
-        public Result Setup()
+        public virtual Result Setup()
         {
             return Result.Success();
         }
 
-        public Result<TData?> Invoke()
+        public virtual Result<TData?> Invoke()
         {
             return Result.Success(default(TData));
         }
 
-        public Result Teardown()
+        public virtual Result Teardown()
         {
             return Result.Success();
         }
