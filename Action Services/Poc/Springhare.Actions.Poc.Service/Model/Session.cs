@@ -34,16 +34,26 @@ namespace Springhare.Actions.Poc.Service.Model
     /// <summary>
     /// 
     /// </summary>
-    public class Action
+    public abstract class Action<TConfig, TState, TData>
     {
+        public TConfig Configuration { get; }
+
+        public TState State { get; }
+
+        public Action(TConfig configuration, TState startingState)
+        {
+            Configuration = configuration;
+            State = startingState;
+        }
+
         public Result Setup()
         {
             return Result.Success();
         }
 
-        public Result Invoke()
+        public Result<TData?> Invoke()
         {
-            return Result.Success(123456789);
+            return Result.Success(default(TData));
         }
 
         public Result Teardown()
@@ -95,12 +105,7 @@ namespace Springhare.Actions.Poc.Service.Model
     /// <typeparam name="T"></typeparam>
     public class Result<T> : Result
     {
-        public T? Data { get; }
-
-        public Result() : base()
-        {
-            Data = default;
-        }
+        public T Data { get; }
 
         public Result(T data) : base()
         {
