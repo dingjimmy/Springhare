@@ -1,6 +1,9 @@
 ﻿// Copyright (c) James C Dingle. All rights reserved.
 
 using Microsoft.AspNetCore.Mvc;
+using Springhare.Actions.Poc.Service.Model;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,6 +13,8 @@ namespace Springhare.Actions.Poc.Service.Controllers
     [ApiController]
     public class SessionController : ControllerBase
     {
+        private readonly ConcurrentDictionary<Guid, Session> _Sessions = new ConcurrentDictionary<Guid, Session>();
+
         // GET: api/<SessionController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -17,23 +22,13 @@ namespace Springhare.Actions.Poc.Service.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<SessionController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<SessionController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] CreateSessionRequest request)
         {
-        }
-
-        // PUT api/<SessionController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
+            var sessionID = Guid.NewGuid();
+            var action = new PocAction(request.Configuration, new PocActionState());
+            _Sessions.TryAdd(new Session(sessionID, action));
         }
 
         // DELETE api/<SessionController>/5
@@ -44,6 +39,44 @@ namespace Springhare.Actions.Poc.Service.Controllers
     }
 }
 
+public class PocAction : ActionBase<PocActionConfiguration, PocActionState, PocActionData>
+{
+    public PocAction(PocActionConfiguration configuration, PocActionState startingState) : base(configuration, startingState)
+    {
+    }
+
+    public override Result Setup()
+    {
+        return base.Setup();
+    }
+
+    public override Result<PocActionData?> Invoke()
+    {
+        return base.Invoke();
+    }
+
+    public override Result Teardown()
+    {
+        return base.Teardown();
+    }
+}
+
+public class CreateSessionRequest
+{
+    public PocActionConfiguration Configuration { get; set; } = new PocActionConfiguration();
+}
+
+public class PocActionData
+{
+}
+
+public class PocActionState
+{
+}
+
+public class PocActionConfiguration
+{
+}
 
 /*
  * # MODEL

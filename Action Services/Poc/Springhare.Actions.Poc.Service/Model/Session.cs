@@ -7,7 +7,7 @@ namespace Springhare.Actions.Poc.Service.Model
     /// <summary>
     /// Represents a period of time that an action is active and persists state between multiple invokations.
     /// </summary>
-    public class Session
+    public class Session<TAction> where TAction : IAction
     {
         /// <summary>
         /// Gets a value which uniquley identifies this session.
@@ -17,12 +17,12 @@ namespace Springhare.Actions.Poc.Service.Model
         /// <summary>
         /// Gets the action this session is responsible for.
         /// </summary>
-        public Action Action { get; }
+        public TAction Action { get; }
 
-        /// <summary>
+        /// <summary> 
         /// 
         /// </summary>
-        public ConcurrentDictionary<Guid, TData> Data { get; }
+        public ConcurrentDictionary<Guid, dynamic> Data { get; }
 
         /// <summary>
         /// 
@@ -31,23 +31,32 @@ namespace Springhare.Actions.Poc.Service.Model
         /// <param name="action"></param>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public Session(Guid id, Action action)
+        public Session(Guid id, TAction action)
         {
             Id = id;
             Action = action ?? throw new ArgumentNullException(nameof(action));
         }
     }
 
+    public interface IAction
+    {
+        Result Setup();
+
+        Result Invoke();
+
+        Result Teardown();
+    }
+
     /// <summary>
     /// 
     /// </summary>
-    public abstract class Action<TConfig, TState, TData>
+    public abstract class ActionBase<TConfig, TState, TData> : IAction
     {
         public TConfig Configuration { get; }
 
         public TState State { get; }
 
-        public Action(TConfig configuration, TState startingState)
+        public ActionBase(TConfig configuration, TState startingState)
         {
             Configuration = configuration;
             State = startingState;
