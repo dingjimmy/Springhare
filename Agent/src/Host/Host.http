@@ -1,6 +1,41 @@
 @Host_HostAddress = http://localhost:5208
 
-GET {{Host_HostAddress}}/weatherforecast/
+### create/initialise/prepare new session
+POST {{Host_HostAddress}}/sessions/
 Accept: application/json
 
-###
+### start session 12345
+PATCH {{Host_HostAddress}}/sessions/12345/
+Accept: application/json
+
+{
+    "desired-state":"started"
+}
+
+### stop session 12345
+PATCH {{Host_HostAddress}}/sessions/12345
+Accept: application/json
+
+{
+    "desired-state":"stopped"
+}
+
+### retrieve status information for session 12345
+GET {{Host_HostAddress}}/sessions/12345
+Accept: application/json
+
+### trigger 1st action of session 12345
+POST {{Host_HostAddress}}/sessions/12345/actions/1
+Accept: application/json
+
+### trigger 2nd action of session 12345
+POST {{Host_HostAddress}}/sessions/12345/actions/2
+Accept: application/json
+
+### trigger 3rd action of session 12345
+POST {{Host_HostAddress}}/session/12345/actions/3
+Accept: application/json
+
+### retrieve data from the 3rd action of session 12345
+GET {{Host_HostAddress}}/session/12345/actions/3
+Accept: application/json
