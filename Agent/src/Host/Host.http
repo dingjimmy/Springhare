@@ -1,26 +1,18 @@
 @Host_HostAddress = http://localhost:5208
 
-### create/initialise/prepare new session
+### begin new session
 POST {{Host_HostAddress}}/sessions/
 Accept: application/json
 
-### start session 12345
-PATCH {{Host_HostAddress}}/sessions/12345/
-Accept: application/json
-
-{
-    "desired-state":"started"
-}
-
-### stop session 12345
+### end session 12345
 PATCH {{Host_HostAddress}}/sessions/12345
 Accept: application/json
 
 {
-    "desired-state":"stopped"
+    "desired-state":"done"
 }
 
-### retrieve status information for session 12345
+### retrieve status of session 12345
 GET {{Host_HostAddress}}/sessions/12345
 Accept: application/json
 
@@ -36,6 +28,10 @@ Accept: application/json
 POST {{Host_HostAddress}}/session/12345/actions/3
 Accept: application/json
 
-### retrieve data from the 3rd action of session 12345
+### retrieve status of the 3rd action of session 12345
 GET {{Host_HostAddress}}/session/12345/actions/3
+Accept: application/json
+
+### retrieve data from the 3rd action of session 12345
+GET {{Host_HostAddress}}/session/12345/actions/3/data
 Accept: application/json
