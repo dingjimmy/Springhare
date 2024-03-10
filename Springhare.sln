@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Agent.Host", "Ag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Agent.Domain.Tests", "Agent\test\Domain\Springhare.Agent.Domain.Tests.csproj", "{32C34017-B37E-49D1-8CA6-F7D2F42FC786}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Agent.Host.Tests", "Agent\test\Host\Springhare.Agent.Host.Tests.csproj", "{A85144C0-7647-45A6-A742-8A9D6CAA03B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Springhare.Agent.Host.Specs", "Agent\test\Host\Springhare.Agent.Host.Specs.csproj", "{A85144C0-7647-45A6-A742-8A9D6CAA03B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,9 +77,6 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C5C6CAF5-F89D-4E32-9A97-CD3699CAA7AE}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6C4A2F17-D581-4967-8BC8-4228C782AD3C} = {FE0800C1-BBA8-4181-A077-FAA23417F84A}
 		{5D9D7B5C-0C6F-4500-90EB-0DB05D4FB7F9} = {FE0800C1-BBA8-4181-A077-FAA23417F84A}
@@ -91,5 +88,8 @@ Global
 		{4217C6CA-19B5-47F5-9BD5-6BBBA5DF3B2B} = {BEF5EEF3-2A82-4156-AADC-2DB9E8B7FB79}
 		{32C34017-B37E-49D1-8CA6-F7D2F42FC786} = {BEF5EEF3-2A82-4156-AADC-2DB9E8B7FB79}
 		{A85144C0-7647-45A6-A742-8A9D6CAA03B9} = {BEF5EEF3-2A82-4156-AADC-2DB9E8B7FB79}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5C6CAF5-F89D-4E32-9A97-CD3699CAA7AE}
 	EndGlobalSection
 EndGlobal
